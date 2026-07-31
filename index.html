@@ -1,546 +1,740 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>Biologi X · Kelompok 5</title>
-  <!-- Font & Ikon -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biologi X · Kelompok 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --ink: #16241c;
+    --ink-soft: #46564c;
+    --green-900: #0f3d27;
+    --green-700: #1c6b45;
+    --green-600: #248257;
+    --green-100: #e7f2ea;
+    --green-50: #f4f9f5;
+    --line: #dde8e0;
+    --card-bg: #ffffff;
+    --bg: #f2f6f3;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 2px rgba(16,40,25,.04), 0 8px 24px rgba(16,40,25,.06);
+  }
 
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(145deg, #eef6ee 0%, #d4e8d4 100%);
-      color: #1a3a2a;
-      padding: 20px;
-      min-height: 100vh;
-    }
+  *{ margin:0; padding:0; box-sizing:border-box; }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 48px 48px 32px 32px;
-      padding: 28px 30px 40px;
-      box-shadow: 0 20px 40px rgba(20, 60, 30, 0.15);
-      border: 1px solid rgba(170, 210, 170, 0.4);
-    }
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 32px 20px 60px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    /* header */
-    .header-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 28px;
-      padding-bottom: 18px;
-      border-bottom: 3px dashed #3b7a5a;
-    }
+  .container{
+    max-width: 1180px;
+    margin: 0 auto;
+  }
 
-    .group-title h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #1a5e3f, #3b8f6e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-    }
+  /* ===== Header ===== */
+  .topbar{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
 
-    .group-title h1 i {
-      color: #2d6b4a;
-      margin-right: 12px;
-      background: #e2f0e2;
-      padding: 8px 14px;
-      border-radius: 60px;
-      font-size: 2rem;
-    }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
 
-    .member-badge {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      background: #e5f4e5;
-      padding: 12px 24px;
-      border-radius: 60px;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.02), 0 6px 14px rgba(50, 100, 50, 0.08);
-    }
+  .brand .mark{
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--green-700), var(--green-600));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
 
-    .member-badge span {
-      font-weight: 600;
-      color: #154b30;
-      background: white;
-      padding: 4px 14px;
-      border-radius: 40px;
-      font-size: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
+  .brand-text h1{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--green-900);
+    letter-spacing: -0.2px;
+  }
 
-    .member-badge i {
-      margin-right: 6px;
-      color: #3b8f6e;
-    }
+  .brand-text p{
+    font-size: .82rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
 
-    /* grid materi */
-    .materi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin: 25px 0 30px;
-    }
+  .members{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
-    .card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 22px 22px 20px;
-      box-shadow: 0 10px 28px rgba(30, 60, 30, 0.06);
-      transition: all 0.2s ease;
-      border: 1px solid rgba(180, 210, 170, 0.4);
-      display: flex;
-      flex-direction: column;
-    }
+  .member-chip{
+    display:flex;
+    align-items:center;
+    gap: 6px;
+    background: var(--green-50);
+    border: 1px solid var(--line);
+    padding: 6px 12px 6px 6px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--green-900);
+  }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(30, 70, 40, 0.12);
-      background: rgba(255, 255, 255, 0.95);
-      border-color: #6dab88;
-    }
+  .member-chip .avatar{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--green-700);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: .7rem;
+  }
 
-    .card-icon {
-      font-size: 2.6rem;
-      color: #2c7a55;
-      margin-bottom: 6px;
-    }
+  /* ===== Section / Card ===== */
+  .materi{
+    display:flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 
-    .card h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #12452e;
-      letter-spacing: -0.3px;
-    }
+  .materi-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
 
-    .card h3 i {
-      margin-right: 12px;
-      color: #2c7a55;
-      font-size: 1.6rem;
-    }
+  .card{
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
 
-    .card h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #1a5536;
-      margin: 14px 0 6px;
-      border-bottom: 2px solid #b3d3b3;
-      padding-bottom: 4px;
-    }
+  .card-head{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    background: var(--green-50);
+  }
 
-    .card p, .card li {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #1f4a33;
-    }
+  .card-head .icon{
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--green-700), var(--green-600));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 1.15rem;
+    flex-shrink:0;
+  }
 
-    .card ul, .card ol {
-      margin: 6px 0 10px 20px;
-      padding-left: 8px;
-    }
+  .card-head h3{
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--green-900);
+    letter-spacing: -0.2px;
+  }
 
-    .card li {
-      margin-bottom: 4px;
-    }
+  .card-head .tag{
+    margin-top: 2px;
+    display:inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    color: var(--green-700);
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
 
-    .card table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin: 10px 0 12px;
-      background: rgba(240, 248, 240, 0.5);
-      border-radius: 16px;
-      overflow: hidden;
-    }
+  .card-body{
+    padding: 24px 28px 28px;
+  }
 
-    .card table th, .card table td {
-      border: 1px solid #b8d4b8;
-      padding: 8px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
+  .card-body h4{
+    font-size: .95rem;
+    font-weight: 800;
+    color: var(--green-900);
+    margin: 22px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--green-100);
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
 
-    .card table th {
-      background: #d0e6d0;
-      font-weight: 700;
-      color: #12452e;
-    }
+  .card-body h4:first-child{ margin-top: 0; }
 
-    .card table td {
-      background: rgba(255, 255, 255, 0.6);
-    }
+  .card-body h4 .num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--green-700);
+    color:#fff;
+    font-size: .68rem;
+    font-weight: 800;
+    flex-shrink:0;
+  }
 
-    .badge {
-      display: inline-block;
-      background: #d4e9d4;
-      padding: 2px 14px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      margin: 2px 4px 2px 0;
-      border: 1px solid #9bbf9b;
-    }
+  .card-body p{
+    font-size: .9rem;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
 
-    .sub-section {
-      margin-top: 10px;
-      padding: 10px 14px;
-      background: rgba(220, 240, 220, 0.4);
-      border-radius: 20px;
-      border-left: 4px solid #3f9b70;
-    }
+  .card-body ul, .card-body ol{
+    margin: 6px 0 4px 20px;
+    font-size: .9rem;
+    color: var(--ink-soft);
+  }
 
-    .sub-section i {
-      color: #2c7a55;
-      margin-right: 8px;
-      width: 1.4rem;
-    }
+  .card-body li{
+    margin-bottom: 5px;
+  }
 
-    .flex-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      margin: 6px 0 8px;
-    }
+  .card-body strong{ color: var(--ink); font-weight: 700; }
 
-    .flex-tags .tag {
-      background: white;
-      padding: 2px 16px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border: 1px solid #abcfab;
-    }
+  .sub-label{
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--green-900);
+    margin: 12px 0 4px;
+  }
 
-    .flex-tags .tag i {
-      margin-right: 6px;
-      color: #1d6b44;
-    }
+  /* table */
+  .table-wrap{
+    overflow-x: auto;
+    margin: 8px 0 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
 
-    /* responsive */
-    @media (max-width: 900px) {
-      .materi-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .84rem;
+  }
 
-    @media (max-width: 700px) {
-      body { padding: 12px; }
-      .container { padding: 16px; border-radius: 32px; }
-      .group-title h1 { font-size: 2rem; }
-      .member-badge { padding: 10px 16px; gap: 6px 10px; }
-      .member-badge span { font-size: 0.85rem; padding: 2px 10px; }
-      .card { padding: 18px 16px; }
-      .card h3 { font-size: 1.5rem; }
-      .card table { font-size: 0.8rem; }
-      .card table th, .card table td { padding: 6px 8px; }
-    }
+  thead th{
+    background: var(--green-700);
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
 
-    @media (max-width: 480px) {
-      .group-title h1 { font-size: 1.6rem; }
-      .header-group { flex-direction: column; align-items: start; gap: 12px; }
-    }
+  tbody td{
+    padding: 10px 14px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    vertical-align: top;
+  }
 
-    .footer-note {
-      margin-top: 30px;
-      text-align: center;
-      font-weight: 500;
-      color: #2b623f;
-      background: rgba(200, 225, 190, 0.35);
-      backdrop-filter: blur(4px);
-      border-radius: 80px;
-      padding: 16px 20px;
-      border: 1px solid #b3d2b3;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 10px 28px;
-    }
+  tbody tr:nth-child(even){ background: var(--green-50); }
 
-    .footer-note i {
-      color: #1f6d42;
-      margin: 0 6px;
-    }
+  tbody td strong{ color: var(--ink); }
 
-    .full-width {
-      grid-column: 1 / -1;
-    }
-  </style>
+  /* callout box for definitions */
+  .callout{
+    background: var(--green-50);
+    border-left: 3px solid var(--green-700);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 12px 16px;
+    font-size: .88rem;
+    color: var(--ink-soft);
+    margin: 6px 0 10px;
+  }
+
+  .flow{
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap: 6px;
+    font-size: .84rem;
+    font-weight: 600;
+    color: var(--green-900);
+    margin: 8px 0;
+  }
+
+  .flow .step{
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  .flow i{ color: var(--green-600); font-size: .75rem; }
+
+  .full-width{ grid-column: 1 / -1; }
+
+  /* ===== Footer ===== */
+  .footer{
+    margin-top: 32px;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+
+  .footer i{ color: var(--green-700); margin-right: 6px; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px){
+    .materi-row{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px){
+    body{ padding: 16px 12px 40px; }
+    .topbar{ padding: 18px; border-radius: var(--radius-md); }
+    .card-head{ padding: 18px 20px; }
+    .card-body{ padding: 20px 20px 24px; }
+    .brand-text h1{ font-size: 1.1rem; }
+  }
+</style>
 </head>
 <body>
 <div class="container">
-  <!-- Header Kelompok 5 -->
-  <header class="header-group">
-    <div class="group-title">
-      <h1><i class="fas fa-leaf"></i> KELOMPOK 5</h1>
+
+  <!-- ===== Header ===== -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark"><i class="fas fa-leaf"></i></div>
+      <div class="brand-text">
+        <h1>Kelompok 5</h1>
+        <p>Rangkuman Materi Biologi · Kelas X</p>
+      </div>
     </div>
-    <div class="member-badge">
-      <span><i class="fas fa-user-astronaut"></i> Azka</span>
-      <span><i class="fas fa-user-graduate"></i> Almira</span>
-      <span><i class="fas fa-user-nurse"></i> Dinilah</span>
-      <span><i class="fas fa-user-secret"></i> Dutha</span>
-      <span><i class="fas fa-user-tie"></i> Fikri</span>
+    <div class="members">
+      <span class="member-chip"><span class="avatar">A</span>Azka</span>
+      <span class="member-chip"><span class="avatar">A</span>Almira</span>
+      <span class="member-chip"><span class="avatar">D</span>Dinilah</span>
+      <span class="member-chip"><span class="avatar">D</span>Dutha</span>
+      <span class="member-chip"><span class="avatar">F</span>Fikri</span>
     </div>
   </header>
 
-  <!-- Grid Materi (4 card) -->
-  <div class="materi-grid">
+  <!-- ===== Materi ===== -->
+  <div class="materi">
+
     <!-- 1. BIOTEKNOLOGI -->
-    <div class="card full-width">
-      <div class="card-icon"><i class="fas fa-dna"></i></div>
-      <h3><i class="fas fa-flask"></i> BIOTEKNOLOGI</h3>
-      <p><strong>X - 3</strong></p>
+    <div class="materi-row">
+      <div class="card full-width">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-flask"></i></div>
+          <div>
+            <h3>Bioteknologi</h3>
+            <span class="tag">X · 3</span>
+          </div>
+        </div>
+        <div class="card-body">
 
-      <h4>1. PENGERTIAN BIOTEKNOLOGI</h4>
-      <p>Bioteknologi adalah pemanfaatan makhluk hidup atau bagian-bagiannya, maupun proses biologis untuk menghasilkan barang dan jasa yang bermanfaat bagi kehidupan manusia.</p>
+          <h4><span class="num">1</span> Pengertian Bioteknologi</h4>
+          <div class="callout">Bioteknologi adalah pemanfaatan makhluk hidup atau bagian-bagiannya, maupun proses biologis, untuk menghasilkan barang dan jasa yang bermanfaat bagi kehidupan manusia.</div>
 
-      <h4>2. TUJUAN BIOTEKNOLOGI</h4>
-      <ul>
-        <li>Memenuhi kebutuhan manusia akan pangan, sandang, papan, kesehatan, dan energi.</li>
-        <li>Meningkatkan kualitas dan kuantitas produk.</li>
-        <li>Menghasilkan produk baru yang lebih bermanfaat.</li>
-        <li>Memperbaiki sifat makhluk hidup agar lebih unggul.</li>
-        <li>Mengatasi masalah lingkungan.</li>
-      </ul>
+          <h4><span class="num">2</span> Tujuan Bioteknologi</h4>
+          <ul>
+            <li>Memenuhi kebutuhan manusia akan pangan, sandang, papan, kesehatan, dan energi.</li>
+            <li>Meningkatkan kualitas dan kuantitas produk.</li>
+            <li>Menghasilkan produk baru yang lebih bermanfaat.</li>
+            <li>Memperbaiki sifat makhluk hidup agar lebih unggul.</li>
+            <li>Mengatasi masalah lingkungan.</li>
+          </ul>
 
-      <h4>3. PRINSIP BIOTEKNOLOGI</h4>
-      <ul>
-        <li>Memanfaatkan proses biologis.</li>
-        <li>Menggunakan mikroorganisme, sel, atau bagian organisme.</li>
-        <li>Dilakukan secara terkontrol dan terarah.</li>
-      </ul>
+          <h4><span class="num">3</span> Prinsip Bioteknologi</h4>
+          <ul>
+            <li>Memanfaatkan proses biologis.</li>
+            <li>Menggunakan mikroorganisme, sel, atau bagian organisme.</li>
+            <li>Dilakukan secara terkontrol dan terarah.</li>
+          </ul>
 
-      <h4>4. JENIS BIOTEKNOLOGI</h4>
-      <table>
-        <tr><th>a. Bioteknologi Konvensional (Tradisional)</th><th>b. Bioteknologi Modern</th></tr>
-        <tr>
-          <td>Menggunakan cara alami tanpa rekayasa genetika, memanfaatkan mikroorganisme secara langsung.<br><strong>Contoh:</strong> tempe, tape, yoghurt, kecap, cuka</td>
-          <td>Menggunakan teknologi canggih dan rekayasa genetika.<br><strong>Contoh:</strong> insulin rekombinan, tanaman transgenik (jagung Bt, padi emas), kloning hewan, kultur jaringan</td>
-        </tr>
-      </table>
+          <h4><span class="num">4</span> Jenis Bioteknologi</h4>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Konvensional (Tradisional)</th><th>Modern</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Menggunakan cara alami tanpa rekayasa genetika, memanfaatkan mikroorganisme secara langsung.<br><strong>Contoh:</strong> tempe, tape, yoghurt, kecap, cuka</td>
+                  <td>Menggunakan teknologi canggih dan rekayasa genetika.<br><strong>Contoh:</strong> insulin rekombinan, tanaman transgenik (jagung Bt, padi emas), kloning hewan, kultur jaringan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h4>5. APLIKASI BIOTEKNOLOGI</h4>
-      <table>
-        <tr><th>Bidang</th><th>Contoh</th><th>Manfaat</th></tr>
-        <tr><td>Pangan</td><td>Tempe, yoghurt, keju, roti, tape</td><td>Makanan bergizi, tahan lama, enak</td></tr>
-        <tr><td>Kesehatan</td><td>Antibiotik (penisilin), vaksin, insulin</td><td>Mengobati &amp; mencegah penyakit</td></tr>
-        <tr><td>Pertanian</td><td>Kultur jaringan, tanaman transgenik (Bt)</td><td>Tanaman unggul, tahan hama, hasil meningkat</td></tr>
-        <tr><td>Peternakan</td><td>Inseminasi buatan, kloning hewan</td><td>Meningkatkan kualitas ternak</td></tr>
-        <tr><td>Lingkungan</td><td>Pengolahan limbah oleh bakteri</td><td>Mengurangi pencemaran</td></tr>
-      </table>
+          <h4><span class="num">5</span> Aplikasi Bioteknologi</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Bidang</th><th>Contoh</th><th>Manfaat</th></tr></thead>
+              <tbody>
+                <tr><td>Pangan</td><td>Tempe, yoghurt, keju, roti, tape</td><td>Makanan bergizi, tahan lama, enak</td></tr>
+                <tr><td>Kesehatan</td><td>Antibiotik (penisilin), vaksin, insulin</td><td>Mengobati &amp; mencegah penyakit</td></tr>
+                <tr><td>Pertanian</td><td>Kultur jaringan, tanaman transgenik (Bt)</td><td>Tanaman unggul, tahan hama, hasil meningkat</td></tr>
+                <tr><td>Peternakan</td><td>Inseminasi buatan, kloning hewan</td><td>Meningkatkan kualitas ternak</td></tr>
+                <tr><td>Lingkungan</td><td>Pengolahan limbah oleh bakteri</td><td>Mengurangi pencemaran</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h4>6. PROSES BIOTEKNOLOGI (SECARA UMUM)</h4>
-      <ol>
-        <li>Pemilihan mikroorganisme atau bahan yang digunakan</li>
-        <li>Persiapan dan pembiakan (inokulasi)</li>
-        <li>Proses fermentasi atau rekayasa genetika</li>
-        <li>Pemanenan dan pemurnian produk</li>
-        <li>Pengemasan dan distribusi</li>
-      </ol>
+          <h4><span class="num">6</span> Proses Bioteknologi (Secara Umum)</h4>
+          <div class="flow">
+            <span class="step">Pemilihan mikroorganisme</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Persiapan &amp; inokulasi</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Fermentasi / rekayasa genetika</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Pemanenan &amp; pemurnian</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Pengemasan &amp; distribusi</span>
+          </div>
 
-      <h4>7. KELEBIHAN BIOTEKNOLOGI</h4>
-      <ul>
-        <li>Menghasilkan produk dalam jumlah besar dan berkualitas.</li>
-        <li>Produk lebih tahan lama dan bernilai gizi tinggi.</li>
-        <li>Membantu mengatasi kelangkaan pangan.</li>
-        <li>Menghasilkan obat dan vaksin untuk kesehatan.</li>
-        <li>Membantu mengatasi pencemaran lingkungan.</li>
-      </ul>
+          <h4><span class="num">7</span> Kelebihan Bioteknologi</h4>
+          <ul>
+            <li>Menghasilkan produk dalam jumlah besar dan berkualitas.</li>
+            <li>Produk lebih tahan lama dan bernilai gizi tinggi.</li>
+            <li>Membantu mengatasi kelangkaan pangan.</li>
+            <li>Menghasilkan obat dan vaksin untuk kesehatan.</li>
+            <li>Membantu mengatasi pencemaran lingkungan.</li>
+          </ul>
 
-      <h4>8. KEKURANGAN BIOTEKNOLOGI</h4>
-      <ul>
-        <li>Biaya penelitian dan peralatan mahal.</li>
-        <li>Dapat menimbulkan dampak negatif jika tidak terkontrol.</li>
-        <li>Produk hasil rekayasa dapat menimbulkan alergi.</li>
-        <li>Dapat mengurangi keanekaragaman hayati.</li>
-      </ul>
+          <h4><span class="num">8</span> Kekurangan Bioteknologi</h4>
+          <ul>
+            <li>Biaya penelitian dan peralatan mahal.</li>
+            <li>Dapat menimbulkan dampak negatif jika tidak terkontrol.</li>
+            <li>Produk hasil rekayasa dapat menimbulkan alergi.</li>
+            <li>Dapat mengurangi keanekaragaman hayati.</li>
+          </ul>
 
-      <h4>9. CONTOH PRODUK BIOTEKNOLOGI</h4>
-      <table>
-        <tr><th>Produk</th><th>Jenis Bioteknologi</th><th>Mikroorganisme/Organisme</th></tr>
-        <tr><td>Tempe</td><td>Konvensional</td><td>Jamur <em>Rhizopus oligosporus</em></td></tr>
-        <tr><td>Yoghurt</td><td>Konvensional</td><td>Bakteri <em>Lactobacillus bulgaricus</em> &amp; <em>Streptococcus thermophilus</em></td></tr>
-        <tr><td>Roti</td><td>Konvensional</td><td>Ragi <em>Saccharomyces cerevisiae</em></td></tr>
-        <tr><td>Antibiotik (penisilin)</td><td>Modern</td><td>Jamur <em>Penicillium</em></td></tr>
-        <tr><td>Insulin</td><td>Modern</td><td>Bakteri <em>Escherichia coli</em> rekombinan</td></tr>
-        <tr><td>Tanaman transgenik (jagung Bt)</td><td>Modern</td><td>Gen Bt dari bakteri <em>Bacillus thuringiensis</em></td></tr>
-      </table>
+          <h4><span class="num">9</span> Contoh Produk Bioteknologi</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Produk</th><th>Jenis</th><th>Mikroorganisme / Organisme</th></tr></thead>
+              <tbody>
+                <tr><td>Tempe</td><td>Konvensional</td><td>Jamur <em>Rhizopus oligosporus</em></td></tr>
+                <tr><td>Yoghurt</td><td>Konvensional</td><td>Bakteri <em>Lactobacillus bulgaricus</em> &amp; <em>Streptococcus thermophilus</em></td></tr>
+                <tr><td>Roti</td><td>Konvensional</td><td>Ragi <em>Saccharomyces cerevisiae</em></td></tr>
+                <tr><td>Antibiotik (penisilin)</td><td>Modern</td><td>Jamur <em>Penicillium</em></td></tr>
+                <tr><td>Insulin</td><td>Modern</td><td>Bakteri <em>Escherichia coli</em> rekombinan</td></tr>
+                <tr><td>Tanaman transgenik (jagung Bt)</td><td>Modern</td><td>Gen Bt dari bakteri <em>Bacillus thuringiensis</em></td></tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h4>10. PERAN BIOTEKNOLOGI DALAM KEHIDUPAN</h4>
-      <ul>
-        <li><strong>Pangan:</strong> Menyediakan makanan bergizi dan tahan lama.</li>
-        <li><strong>Kesehatan:</strong> Menghasilkan obat, vaksin, dan diagnosis penyakit.</li>
-        <li><strong>Pertanian:</strong> Meningkatkan produktivitas dan ketahanan tanaman.</li>
-        <li><strong>Peternakan:</strong> Meningkatkan kualitas dan kuantitas hasil ternak.</li>
-        <li><strong>Lingkungan:</strong> Mengolah limbah dan menjaga kelestarian lingkungan.</li>
-      </ul>
+          <h4><span class="num">10</span> Peran Bioteknologi dalam Kehidupan</h4>
+          <ul>
+            <li><strong>Pangan:</strong> Menyediakan makanan bergizi dan tahan lama.</li>
+            <li><strong>Kesehatan:</strong> Menghasilkan obat, vaksin, dan diagnosis penyakit.</li>
+            <li><strong>Pertanian:</strong> Meningkatkan produktivitas dan ketahanan tanaman.</li>
+            <li><strong>Peternakan:</strong> Meningkatkan kualitas dan kuantitas hasil ternak.</li>
+            <li><strong>Lingkungan:</strong> Mengolah limbah dan menjaga kelestarian lingkungan.</li>
+          </ul>
+
+        </div>
+      </div>
     </div>
 
-    <!-- 2. EKOSISTEM DAN INTERAKSINYA -->
-    <div class="card full-width">
-      <div class="card-icon"><i class="fas fa-earth-asia"></i></div>
-      <h3><i class="fas fa-seedling"></i> EKOSISTEM DAN INTERAKSINYA</h3>
-      <p><strong>X - 3</strong></p>
+    <!-- 2. EKOSISTEM -->
+    <div class="materi-row">
+      <div class="card full-width">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-earth-asia"></i></div>
+          <div>
+            <h3>Ekosistem dan Interaksinya</h3>
+            <span class="tag">X · 3</span>
+          </div>
+        </div>
+        <div class="card-body">
 
-      <h4>1. PENGERTIAN EKOSISTEM</h4>
-      <p>Ekosistem adalah kesatuan antara makhluk hidup (biotik) dengan lingkungan abiotik di suatu tempat yang saling berinteraksi membentuk suatu sistem yang seimbang.</p>
+          <h4><span class="num">1</span> Pengertian Ekosistem</h4>
+          <div class="callout">Ekosistem adalah kesatuan antara makhluk hidup (biotik) dengan lingkungan abiotik di suatu tempat yang saling berinteraksi membentuk suatu sistem yang seimbang.</div>
 
-      <h4>2. KOMPONEN EKOSISTEM</h4>
-      <p><strong>a. Komponen Biotik (makhluk hidup)</strong></p>
-      <ul>
-        <li><strong>Produsen</strong>: makhluk hidup yang dapat membuat makanan sendiri (contoh: tumbuhan hijau).</li>
-        <li><strong>Konsumen</strong>: makhluk hidup yang memperoleh energi dengan memakan makhluk hidup lain.</li>
-        <li><strong>Pengurai (dekomposer)</strong>: makhluk hidup yang menguraikan sisa-sisa makhluk hidup menjadi zat sederhana (contoh: bakteri, jamur).</li>
-      </ul>
-      <p><strong>b. Komponen Abiotik (tak hidup)</strong></p>
-      <p>Faktor fisik dan kimia: cahaya matahari, air, udara, tanah, suhu, mineral, kelembapan, pH, dll.</p>
+          <h4><span class="num">2</span> Komponen Ekosistem</h4>
+          <p class="sub-label">a. Komponen Biotik (makhluk hidup)</p>
+          <ul>
+            <li><strong>Produsen</strong> — makhluk hidup yang dapat membuat makanan sendiri (contoh: tumbuhan hijau).</li>
+            <li><strong>Konsumen</strong> — makhluk hidup yang memperoleh energi dengan memakan makhluk hidup lain.</li>
+            <li><strong>Pengurai (dekomposer)</strong> — menguraikan sisa-sisa makhluk hidup menjadi zat sederhana (contoh: bakteri, jamur).</li>
+          </ul>
+          <p class="sub-label">b. Komponen Abiotik (tak hidup)</p>
+          <p>Faktor fisik dan kimia: cahaya matahari, air, udara, tanah, suhu, mineral, kelembapan, pH, dan lainnya.</p>
 
-      <h4>3. JENIS-JENIS EKOSISTEM</h4>
-      <p><strong>a. Berdasarkan aslinya</strong></p>
-      <ul>
-        <li><strong>Ekosistem alami</strong>: terbentuk secara alami (hutan, laut, sungai, danau).</li>
-        <li><strong>Ekosistem buatan</strong>: campur tangan manusia (sawah, waduk, kebun, akuarium).</li>
-      </ul>
-      <p><strong>b. Berdasarkan lingkungannya</strong></p>
-      <table>
-        <tr><th>Jenis Ekosistem</th><th>Keterangan</th></tr>
-        <tr><td><strong>Ekosistem Darat</strong></td><td>Hutan, padang rumput, gurun, pegunungan, kebun</td></tr>
-        <tr><td><strong>Ekosistem Perairan</strong></td><td>Laut, sungai, danau, rawa, terumbu karang</td></tr>
-      </table>
+          <h4><span class="num">3</span> Jenis-Jenis Ekosistem</h4>
+          <p class="sub-label">a. Berdasarkan Asalnya</p>
+          <ul>
+            <li><strong>Ekosistem alami</strong> — terbentuk secara alami (hutan, laut, sungai, danau).</li>
+            <li><strong>Ekosistem buatan</strong> — hasil campur tangan manusia (sawah, waduk, kebun, akuarium).</li>
+          </ul>
+          <p class="sub-label">b. Berdasarkan Lingkungannya</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Jenis Ekosistem</th><th>Keterangan</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Ekosistem Darat</strong></td><td>Hutan, padang rumput, gurun, pegunungan, kebun</td></tr>
+                <tr><td><strong>Ekosistem Perairan</strong></td><td>Laut, sungai, danau, rawa, terumbu karang</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h4>4. ALIRAN ENERGI DALAM EKOSISTEM</h4>
-      <p>Matahari (Sumber energi) → Tumbuhan (Produsen) → Belalang (Konsumen I) → Katak (Konsumen II) → Ular (Konsumen III) → Pengurai (Bakteri, jamur)</p>
-      <p><em>Energi berkurang di setiap tingkat trofik.</em></p>
+          <h4><span class="num">4</span> Aliran Energi dalam Ekosistem</h4>
+          <div class="flow">
+            <span class="step">Matahari</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Tumbuhan (Produsen)</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Belalang (Konsumen I)</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Katak (Konsumen II)</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Ular (Konsumen III)</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Pengurai</span>
+          </div>
+          <p><em>Energi berkurang di setiap tingkat trofik.</em></p>
 
-      <h4>5. INTERAKSI ANTAR KOMPONEN EKOSISTEM</h4>
-      <p><strong>a. Interaksi Antar Komponen Biotik</strong></p>
-      <table>
-        <tr><th>Jenis Interaksi</th><th>Pengertian</th><th>Contoh</th></tr>
-        <tr><td><strong>Mutualisme</strong></td><td>Kedua makhluk hidup saling diuntungkan.</td><td>Lebah dan bunga, burung jalak dan kerbau</td></tr>
-        <tr><td><strong>Komensalisme</strong></td><td>Satu diuntungkan, yang lain tidak dirugikan.</td><td>Anggrek dengan pohon, ikan remora dengan hiu</td></tr>
-        <tr><td><strong>Parasitisme</strong></td><td>Satu diuntungkan, yang lain dirugikan.</td><td>Cacing pita pada usus manusia, benalu pada pohon mangga</td></tr>
-        <tr><td><strong>Predasi</strong></td><td>Pemangsa menangkap dan memakan mangsa.</td><td>Singa memangsa zebra, elang memangsa tikus</td></tr>
-        <tr><td><strong>Kompetisi</strong></td><td>Persaingan untuk mendapatkan sumber daya yang sama.</td><td>Persaingan antar tumbuhan untuk cahaya matahari</td></tr>
-      </table>
-      <p><strong>b. Interaksi Antara Komponen Biotik dan Abiotik</strong></p>
-      <ul>
-        <li>Tumbuhan memerlukan cahaya matahari, air, dan mineral untuk fotosintesis.</li>
-        <li>Ikan memerlukan oksigen terlarut dalam air untuk bernapas.</li>
-        <li>Suhu mempengaruhi pertumbuhan dan penyebaran makhluk hidup.</li>
-      </ul>
+          <h4><span class="num">5</span> Interaksi Antar Komponen Ekosistem</h4>
+          <p class="sub-label">a. Interaksi Antar Komponen Biotik</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Jenis Interaksi</th><th>Pengertian</th><th>Contoh</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Mutualisme</strong></td><td>Kedua makhluk hidup saling diuntungkan.</td><td>Lebah &amp; bunga, burung jalak &amp; kerbau</td></tr>
+                <tr><td><strong>Komensalisme</strong></td><td>Satu diuntungkan, yang lain tidak dirugikan.</td><td>Anggrek dengan pohon, ikan remora dengan hiu</td></tr>
+                <tr><td><strong>Parasitisme</strong></td><td>Satu diuntungkan, yang lain dirugikan.</td><td>Cacing pita pada usus manusia, benalu pada pohon mangga</td></tr>
+                <tr><td><strong>Predasi</strong></td><td>Pemangsa menangkap dan memakan mangsa.</td><td>Singa memangsa zebra, elang memangsa tikus</td></tr>
+                <tr><td><strong>Kompetisi</strong></td><td>Persaingan mendapatkan sumber daya yang sama.</td><td>Persaingan antar tumbuhan untuk cahaya matahari</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sub-label">b. Interaksi Antara Komponen Biotik dan Abiotik</p>
+          <ul>
+            <li>Tumbuhan memerlukan cahaya matahari, air, dan mineral untuk fotosintesis.</li>
+            <li>Ikan memerlukan oksigen terlarut dalam air untuk bernapas.</li>
+            <li>Suhu memengaruhi pertumbuhan dan penyebaran makhluk hidup.</li>
+          </ul>
 
-      <h4>6. KESEIMBANGAN EKOSISTEM</h4>
-      <p>Keseimbangan ekosistem terjadi apabila semua komponen berinteraksi secara seimbang dan tidak ada yang mendominasi. Jika salah satu terganggu, keseimbangan bisa berubah dan menyebabkan kerusakan lingkungan.</p>
+          <h4><span class="num">6</span> Keseimbangan Ekosistem</h4>
+          <p>Keseimbangan ekosistem terjadi apabila semua komponen berinteraksi secara seimbang dan tidak ada yang mendominasi. Jika salah satu komponen terganggu, keseimbangan dapat berubah dan menyebabkan kerusakan lingkungan.</p>
 
-      <h4>7. MANFAAT EKOSISTEM</h4>
-      <ul>
-        <li>Menyediakan kebutuhan hidup manusia (pangan, sandang, papan).</li>
-        <li>Menjaga keseimbangan lingkungan.</li>
-        <li>Menyediakan oksigen dan menyerap karbon dioksida.</li>
-        <li>Mendukung siklus air dan kesuburan tanah.</li>
-        <li>Tempat hidup berbagai makhluk hidup.</li>
-      </ul>
+          <h4><span class="num">7</span> Manfaat Ekosistem</h4>
+          <ul>
+            <li>Menyediakan kebutuhan hidup manusia (pangan, sandang, papan).</li>
+            <li>Menjaga keseimbangan lingkungan.</li>
+            <li>Menyediakan oksigen dan menyerap karbon dioksida.</li>
+            <li>Mendukung siklus air dan kesuburan tanah.</li>
+            <li>Menjadi tempat hidup berbagai makhluk hidup.</li>
+          </ul>
+
+        </div>
+      </div>
     </div>
 
-    <!-- 3. BAKTERI -->
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-biohazard"></i></div>
-      <h3><i class="fas fa-bacterium"></i> BAKTERI</h3>
-      <p><strong>X - 3</strong></p>
+    <!-- 3 & 4 -->
+    <div class="materi-row">
 
-      <h4>1. PENGERTIAN</h4>
-      <p>Bakteri adalah mikroorganisme bersel satu prokariotik, tidak memiliki inti sel sejati dan organela bermembran. Hidup di hampir semua tempat.</p>
+      <!-- 3. BAKTERI -->
+      <div class="card">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-bacterium"></i></div>
+          <div>
+            <h3>Bakteri</h3>
+            <span class="tag">X · 3</span>
+          </div>
+        </div>
+        <div class="card-body">
 
-      <h4>2. CIRI-CIRI BAKTERI</h4>
-      <ul>
-        <li>Bersel satu (uniseluler)</li>
-        <li>Prokariotik (tidak memiliki inti sel sejati)</li>
-        <li>Ukuran mikroskopis (± 0,1 - 10 mikrometer)</li>
-        <li>Berkembang biak dengan pembelahan biner</li>
-        <li>Hidup di berbagai lingkungan</li>
-        <li>Beberapa menguntungkan, beberapa merugikan</li>
-      </ul>
+          <h4><span class="num">1</span> Pengertian</h4>
+          <div class="callout">Bakteri adalah mikroorganisme bersel satu prokariotik, tidak memiliki inti sel sejati dan organela bermembran. Hidup di hampir semua tempat.</div>
 
-      <h4>3. BENTUK BAKTERI</h4>
-      <ul>
-        <li><strong>Kokus (bulat)</strong> contoh: <em>Staphylococcus</em>, <em>Streptococcus</em></li>
-        <li><strong>Basil (batang)</strong> contoh: <em>Escherichia coli</em>, <em>Bacillus subtilis</em></li>
-        <li><strong>Spiral</strong> contoh: <em>Spirillum</em></li>
-        <li><strong>Vibrio (koma)</strong> contoh: <em>Vibrio cholerae</em></li>
-      </ul>
+          <h4><span class="num">2</span> Ciri-Ciri Bakteri</h4>
+          <ul>
+            <li>Bersel satu (uniseluler)</li>
+            <li>Prokariotik (tidak memiliki inti sel sejati)</li>
+            <li>Ukuran mikroskopis (± 0,1–10 mikrometer)</li>
+            <li>Berkembang biak dengan pembelahan biner</li>
+            <li>Hidup di berbagai lingkungan</li>
+            <li>Beberapa menguntungkan, beberapa merugikan</li>
+          </ul>
 
-      <h4>4. STRUKTUR BAKTERI</h4>
-      <ul>
-        <li><strong>Kapsul</strong>: melindungi dan membantu melekat.</li>
-        <li><strong>Dinding sel</strong>: memberi bentuk dan perlindungan.</li>
-        <li><strong>Membran plasma</strong>: mengatur keluar masuk zat.</li>
-        <li><strong>Sitoplasma</strong>: tempat reaksi metabolisme.</li>
-        <li><strong>Ribosom</strong>: sintesis protein.</li>
-        <li><strong>DNA (nukleoid)</strong>: materi genetik.</li>
-        <li><strong>Pili</strong>: membantu melekat pada inang.</li>
-        <li><strong>Flagelum</strong>: alat gerak.</li>
-      </ul>
+          <h4><span class="num">3</span> Bentuk Bakteri</h4>
+          <ul>
+            <li><strong>Kokus (bulat)</strong> — <em>Staphylococcus</em>, <em>Streptococcus</em></li>
+            <li><strong>Basil (batang)</strong> — <em>Escherichia coli</em>, <em>Bacillus subtilis</em></li>
+            <li><strong>Spiral</strong> — <em>Spirillum</em></li>
+            <li><strong>Vibrio (koma)</strong> — <em>Vibrio cholerae</em></li>
+          </ul>
 
-      <h4>5. CARA HIDUP BAKTERI</h4>
-      <ul>
-        <li>Hidup bebas di tanah, air, udara, dan makhluk hidup.</li>
-        <li>Saprofit (mengurai bahan organik mati).</li>
-        <li>Parasit (menyebabkan penyakit).</li>
-        <li>Berkembang biak dengan pembelahan biner.</li>
-      </ul>
+          <h4><span class="num">4</span> Struktur Bakteri</h4>
+          <ul>
+            <li><strong>Kapsul</strong> — melindungi dan membantu melekat.</li>
+            <li><strong>Dinding sel</strong> — memberi bentuk dan perlindungan.</li>
+            <li><strong>Membran plasma</strong> — mengatur keluar-masuk zat.</li>
+            <li><strong>Sitoplasma</strong> — tempat reaksi metabolisme.</li>
+            <li><strong>Ribosom</strong> — sintesis protein.</li>
+            <li><strong>DNA (nukleoid)</strong> — materi genetik.</li>
+            <li><strong>Pili</strong> — membantu melekat pada inang.</li>
+            <li><strong>Flagelum</strong> — alat gerak.</li>
+          </ul>
 
-      <h4>6. PERAN BAKTERI</h4>
-      <p><strong>a. Menguntungkan</strong></p>
-      <ul>
-        <li>Menguraikan sisa makhluk hidup (dekomposer).</li>
-        <li>Membantu pembuatan makanan fermentasi (yogurt, keju, tempe, nata de coco).</li>
-        <li>Menghasilkan antibiotik (misal <em>Streptomyces</em>).</li>
-        <li>Menambat nitrogen di tanah (<em>Rhizobium</em> pada bintil akar).</li>
-      </ul>
-      <p><strong>b. Merugikan</strong></p>
-      <ul>
-        <li>Menyebabkan penyakit: TBC, kolera, tifus, diare, tetanus.</li>
-        <li>Merusak makanan dan menyebabkan pembusukan.</li>
-      </ul>
+          <h4><span class="num">5</span> Cara Hidup Bakteri</h4>
+          <ul>
+            <li>Hidup bebas di tanah, air, udara, dan makhluk hidup.</li>
+            <li>Saprofit (mengurai bahan organik mati).</li>
+            <li>Parasit (menyebabkan penyakit).</li>
+            <li>Berkembang biak dengan pembelahan biner.</li>
+          </ul>
 
-      <h4>7. PERKEMBANGBIAKAN BAKTERI</h4>
-      <p>Secara aseksual dengan pembelahan biner:</p>
-      <ol>
-        <li>DNA mengganda.</li>
-        <li>Terbentuk sekat di tengah sel.</li>
-        <li>Pemisahan menjadi dua sel anak identik.</li>
-      </ol>
+          <h4><span class="num">6</span> Peran Bakteri</h4>
+          <p class="sub-label">a. Menguntungkan</p>
+          <ul>
+            <li>Menguraikan sisa makhluk hidup (dekomposer).</li>
+            <li>Membantu pembuatan makanan fermentasi (yoghurt, keju, tempe, nata de coco).</li>
+            <li>Menghasilkan antibiotik (misal <em>Streptomyces</em>).</li>
+            <li>Menambat nitrogen di tanah (<em>Rhizobium</em> pada bintil akar).</li>
+          </ul>
+          <p class="sub-label">b. Merugikan</p>
+          <ul>
+            <li>Menyebabkan penyakit: TBC, kolera, tifus, diare, tetanus.</li>
+            <li>Merusak makanan dan menyebabkan pembusukan.</li>
+          </ul>
 
-      <h4>8. CONTOH BAKTERI</h4>
-      <p><strong>Menguntungkan:</strong> <em>Lactobacillus</em> (yogurt), <em>Rhizobium</em> (penambat nitrogen), <em>Streptomyces</em> (antibiotik).</p>
-      <p><strong>Merugikan:</strong> <em>Escherichia coli</em> (diare), <em>Salmonella typhi</em> (tifus), <em>Mycobacterium tuberculosis</em> (TBC).</p>
+          <h4><span class="num">7</span> Perkembangbiakan Bakteri</h4>
+          <p>Secara aseksual dengan pembelahan biner:</p>
+          <ol>
+            <li>DNA mengganda.</li>
+            <li>Terbentuk sekat di tengah sel.</li>
+            <li>Pemisahan menjadi dua sel anak identik.</li>
+          </ol>
+
+          <h4><span class="num">8</span> Contoh Bakteri</h4>
+          <p><strong>Menguntungkan:</strong> <em>Lactobacillus</em> (yoghurt), <em>Rhizobium</em> (penambat nitrogen), <em>Streptomyces</em> (antibiotik).</p>
+          <p><strong>Merugikan:</strong> <em>Escherichia coli</em> (diare), <em>Salmonella typhi</em> (tifus), <em>Mycobacterium tuberculosis</em> (TBC).</p>
+
+        </div>
+      </div>
+
+      <!-- 4. KLASIFIKASI & KEANEKARAGAMAN HAYATI -->
+      <div class="card">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-sitemap"></i></div>
+          <div>
+            <h3>Klasifikasi &amp; Keanekaragaman Hayati</h3>
+            <span class="tag">X · 3</span>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <h4><span class="num">1</span> Pengertian Klasifikasi</h4>
+          <div class="callout">Klasifikasi makhluk hidup adalah pengelompokan makhluk hidup berdasarkan persamaan dan perbedaan ciri yang dimilikinya, untuk mempermudah dalam mempelajari keanekaragamannya.</div>
+
+          <h4><span class="num">2</span> Tujuan Klasifikasi</h4>
+          <ul>
+            <li>Mempermudah dalam mengenali dan mempelajari makhluk hidup.</li>
+            <li>Mengetahui hubungan kekerabatan antar makhluk hidup.</li>
+            <li>Memberi nama pada makhluk hidup yang belum diketahui namanya.</li>
+            <li>Menyederhanakan objek studi yang beraneka ragam.</li>
+          </ul>
+
+          <h4><span class="num">3</span> Tingkatan Takson (Urutan)</h4>
+          <div class="flow">
+            <span class="step">Kingdom</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Filum / Divisi</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Kelas</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Ordo</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Famili</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Genus</span><i class="fas fa-arrow-right"></i>
+            <span class="step">Spesies</span>
+          </div>
+          <p><em>Semakin tinggi tingkatan takson, semakin sedikit persamaan ciri antar anggotanya.</em></p>
+
+          <h4><span class="num">4</span> Sistem Tata Nama (Binomial Nomenklatur)</h4>
+          <ul>
+            <li>Menggunakan bahasa Latin, terdiri dari dua kata.</li>
+            <li>Kata pertama menunjukkan genus (huruf awal kapital), kata kedua menunjukkan penunjuk spesies (huruf kecil).</li>
+            <li>Ditulis miring atau digarisbawahi. Contoh: <em>Oryza sativa</em> (padi).</li>
+          </ul>
+
+          <h4><span class="num">5</span> Pengertian Keanekaragaman Hayati</h4>
+          <p>Keanekaragaman hayati (biodiversitas) adalah keanekaragaman makhluk hidup yang meliputi variasi bentuk, penampilan, jumlah, dan sifat yang tampak pada berbagai tingkat.</p>
+
+          <h4><span class="num">6</span> Tingkat Keanekaragaman Hayati</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tingkat</th><th>Keterangan</th><th>Contoh</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Gen</strong></td><td>Variasi susunan gen dalam satu spesies</td><td>Variasi warna bulu kucing, jenis mangga</td></tr>
+                <tr><td><strong>Jenis (Spesies)</strong></td><td>Variasi antar spesies dalam satu marga/famili</td><td>Kelapa, pinang, aren (famili Palem)</td></tr>
+                <tr><td><strong>Ekosistem</strong></td><td>Variasi komponen biotik &amp; abiotik antar habitat</td><td>Ekosistem hutan, gurun, laut, sungai</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4><span class="num">7</span> Manfaat Keanekaragaman Hayati</h4>
+          <ul>
+            <li>Sumber pangan, sandang, dan papan.</li>
+            <li>Sumber bahan obat-obatan.</li>
+            <li>Menjaga keseimbangan ekosistem.</li>
+            <li>Sumber plasma nutfah untuk pemuliaan.</li>
+            <li>Nilai edukasi, penelitian, dan pariwisata.</li>
+          </ul>
+
+          <h4><span class="num">8</span> Ancaman Terhadap Keanekaragaman Hayati</h4>
+          <ul>
+            <li>Kerusakan dan alih fungsi habitat.</li>
+            <li>Perburuan dan eksploitasi berlebihan.</li>
+            <li>Pencemaran lingkungan.</li>
+            <li>Masuknya spesies asing (invasif).</li>
+            <li>Perubahan iklim global.</li>
+          </ul>
+
+        </div>
+      </div>
+
     </div>
 
-    <!-- 4. KLASIFIKASI MAHLUK HIDUP DAN KEANEKARAGAMAN HAYATI -->
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-sitemap"></i></div>
-      <h3><i class="fas fa-tree"></i> KLASIFIKASI &amp; KEANEKARAGAMAN HAYATI</h3>
-      <p><strong>X - 3</strong></p>
+  </div>
 
-      <h4>1. PENGERTIAN KLASIFIKASI</h4>
-      <p
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <i class="fas fa-graduation-cap"></i>Tugas Biologi Kelas X &middot; Kelompok 5
+  </footer>
+
+</div>
+</body>
+</html>
+
