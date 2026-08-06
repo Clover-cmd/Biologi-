@@ -1,584 +1,1266 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biologi X · Kelompok 5</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-  :root{
-    --ink: #16241c;
-    --ink-soft: #46564c;
-    --green-900: #0f3d27;
-    --green-700: #1c6b45;
-    --green-600: #248257;
-    --green-100: #e7f2ea;
-    --green-50: #f4f9f5;
-    --line: #dde8e0;
-    --card-bg: #ffffff;
-    --bg: #f2f6f3;
-    --radius-lg: 20px;
-    --radius-md: 14px;
-    --radius-sm: 8px;
-    --shadow: 0 1px 2px rgba(16,40,25,.04), 0 8px 24px rgba(16,40,25,.06);
-  }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biologi X · Kelompok 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* ─── ROOT ─── */
+        :root {
+            --green-900: #0a2e1a;
+            --green-800: #13472a;
+            --green-700: #1a6b3c;
+            --green-600: #2a9d5a;
+            --green-500: #3fb97a;
+            --green-400: #6fd19b;
+            --green-200: #b5e6cf;
+            --green-100: #ddf5e8;
+            --green-50: #f2fbf6;
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
+            --blue-700: #0d47a1;
+            --blue-500: #1e88e5;
+            --blue-100: #dbeafe;
 
-  body{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    padding: 32px 20px 60px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
+            --amber-600: #f57c00;
+            --amber-400: #ffb300;
+            --amber-100: #fff8e1;
 
-  .container{
-    max-width: 1180px;
-    margin: 0 auto;
-  }
+            --purple-700: #6a1b9a;
+            --purple-400: #ab47bc;
+            --purple-100: #f3e5f5;
 
-  /* ===== Header ===== */
-  .topbar{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 22px 28px;
-    margin-bottom: 28px;
-    box-shadow: var(--shadow);
-  }
+            --coral-600: #d32f2f;
+            --coral-400: #ef5350;
+            --coral-100: #ffebee;
 
-  .brand{
-    display:flex;
-    align-items:center;
-    gap: 14px;
-  }
+            --teal-700: #00695c;
+            --teal-400: #26a69a;
+            --teal-100: #e0f2f1;
 
-  .brand .mark{
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--green-700), var(--green-600));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
+            --ink: #1a2e22;
+            --ink-soft: #3d5a4a;
+            --ink-light: #6a8a78;
+            --line: #cde0d4;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 8px rgba(10, 46, 26, .06), 0 12px 32px rgba(10, 46, 26, .08);
+            --shadow-hover: 0 4px 16px rgba(10, 46, 26, .10), 0 20px 48px rgba(10, 46, 26, .12);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+            --transition: all .3s cubic-bezier(.25, .46, .45, .94);
+        }
 
-  .brand-text h1{
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--green-900);
-    letter-spacing: -0.2px;
-  }
+        /* ─── RESET ─── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  .brand-text p{
-    font-size: .82rem;
-    color: var(--ink-soft);
-    font-weight: 500;
-  }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--green-50);
+            color: var(--ink);
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 10% 20%, rgba(63, 185, 122, .06) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 80%, rgba(30, 136, 229, .05) 0%, transparent 60%),
+                radial-gradient(ellipse at 40% 60%, rgba(255, 179, 0, .04) 0%, transparent 50%);
+        }
 
-  .members{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+        .container {
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 24px 20px 48px;
+        }
 
-  .member-chip{
-    display:flex;
-    align-items:center;
-    gap: 6px;
-    background: var(--green-50);
-    border: 1px solid var(--line);
-    padding: 6px 12px 6px 6px;
-    border-radius: 999px;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--green-900);
-  }
+        /* ─── SCROLLBAR ─── */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--green-100);
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--green-400);
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--green-600);
+        }
 
-  .member-chip .avatar{
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--green-700);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size: .7rem;
-  }
+        /* ─── HEADER / TOPBAR ─── */
+        .topbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 18px 28px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .topbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-600), var(--green-400), var(--amber-400), var(--blue-500), var(--purple-400));
+            background-size: 200% 100%;
+            animation: gradMove 6s ease-in-out infinite alternate;
+        }
+        @keyframes gradMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 0%;
+            }
+        }
 
-  /* ===== Section / Card ===== */
-  .materi{
-    display:flex;
-    flex-direction: column;
-    gap: 24px;
-  }
+        .topbar:hover {
+            box-shadow: var(--shadow-hover);
+        }
 
-  .materi-row{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
 
-  .card{
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
+        .brand .mark {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(26, 107, 60, .25);
+            transition: var(--transition);
+        }
+        .brand .mark:hover {
+            transform: rotate(-6deg) scale(1.04);
+        }
 
-  .card-head{
-    display:flex;
-    align-items:center;
-    gap: 14px;
-    padding: 22px 28px;
-    border-bottom: 1px solid var(--line);
-    background: var(--green-50);
-  }
+        .brand-text h1 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--green-900);
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--green-800), var(--green-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  .card-head .icon{
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(135deg, var(--green-700), var(--green-600));
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size: 1.15rem;
-    flex-shrink:0;
-  }
+        .brand-text p {
+            font-size: .8rem;
+            color: var(--ink-light);
+            font-weight: 600;
+            letter-spacing: .2px;
+            -webkit-text-fill-color: var(--ink-light);
+        }
 
-  .card-head h3{
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--green-900);
-    letter-spacing: -0.2px;
-  }
+        .members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-  .card-head .tag{
-    margin-top: 2px;
-    display:inline-block;
-    font-size: .72rem;
-    font-weight: 700;
-    color: var(--green-700);
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 2px 9px;
-    border-radius: 999px;
-  }
+        .member-chip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--green-50);
+            border: 1.5px solid var(--green-200);
+            padding: 5px 14px 5px 5px;
+            border-radius: 999px;
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--green-800);
+            transition: var(--transition);
+        }
+        .member-chip:hover {
+            background: var(--green-100);
+            border-color: var(--green-400);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 107, 60, .12);
+        }
 
-  .card-body{
-    padding: 24px 28px 28px;
-  }
+        .member-chip .avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
 
-  .card-body h4{
-    font-size: .95rem;
-    font-weight: 800;
-    color: var(--green-900);
-    margin: 22px 0 8px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--green-100);
-    display:flex;
-    align-items:center;
-    gap: 8px;
-  }
+        /* ─── SECTION TITLE ─── */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .section-title .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--green-700), var(--green-600));
+            color: #fff;
+            padding: 6px 18px 6px 14px;
+            border-radius: 999px;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .3px;
+            box-shadow: 0 4px 12px rgba(26, 107, 60, .2);
+        }
+        .section-title .badge i {
+            font-size: .85rem;
+        }
+        .section-title h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--green-900);
+            letter-spacing: -0.5px;
+        }
 
-  .card-body h4:first-child{ margin-top: 0; }
+        /* ─── MATERI GRID ─── */
+        .materi {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
 
-  .card-body h4 .num{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
-    background: var(--green-700);
-    color:#fff;
-    font-size: .68rem;
-    font-weight: 800;
-    flex-shrink:0;
-  }
+        .materi-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
 
-  .card-body p{
-    font-size: .9rem;
-    color: var(--ink-soft);
-    margin-bottom: 8px;
-  }
+        .full-width {
+            grid-column: 1 / -1;
+        }
 
-  .card-body ul, .card-body ol{
-    margin: 6px 0 4px 20px;
-    font-size: .9rem;
-    color: var(--ink-soft);
-  }
+        /* ─── CARDS ─── */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
 
-  .card-body li{
-    margin-bottom: 5px;
-  }
+        /* accent colors per card */
+        .card-accent-green .card-head {
+            border-bottom-color: var(--green-400);
+        }
+        .card-accent-green .icon {
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
+        }
 
-  .card-body strong{ color: var(--ink); font-weight: 700; }
+        .card-accent-amber .card-head {
+            border-bottom-color: var(--amber-400);
+        }
+        .card-accent-amber .icon {
+            background: linear-gradient(135deg, var(--amber-600), var(--amber-400));
+        }
 
-  .sub-label{
-    font-size: .85rem;
-    font-weight: 700;
-    color: var(--green-900);
-    margin: 12px 0 4px;
-  }
+        .card-accent-blue .card-head {
+            border-bottom-color: var(--blue-500);
+        }
+        .card-accent-blue .icon {
+            background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+        }
 
-  /* table */
-  .table-wrap{
-    overflow-x: auto;
-    margin: 8px 0 10px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-  }
+        .card-accent-purple .card-head {
+            border-bottom-color: var(--purple-400);
+        }
+        .card-accent-purple .icon {
+            background: linear-gradient(135deg, var(--purple-700), var(--purple-400));
+        }
 
-  table{
-    width: 100%;
-    border-collapse: collapse;
-    font-size: .84rem;
-  }
+        .card-accent-coral .card-head {
+            border-bottom-color: var(--coral-400);
+        }
+        .card-accent-coral .icon {
+            background: linear-gradient(135deg, var(--coral-600), var(--coral-400));
+        }
 
-  thead th{
-    background: var(--green-700);
-    color: #fff;
-    font-weight: 700;
-    text-align: left;
-    padding: 10px 14px;
-    white-space: nowrap;
-  }
+        .card-accent-teal .card-head {
+            border-bottom-color: var(--teal-400);
+        }
+        .card-accent-teal .icon {
+            background: linear-gradient(135deg, var(--teal-700), var(--teal-400));
+        }
 
-  tbody td{
-    padding: 10px 14px;
-    border-top: 1px solid var(--line);
-    color: var(--ink-soft);
-    vertical-align: top;
-  }
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 26px;
+            border-bottom: 3px solid var(--green-400);
+            background: linear-gradient(135deg, var(--green-50), #fff);
+            flex-shrink: 0;
+        }
 
-  tbody tr:nth-child(even){ background: var(--green-50); }
+        .card-head .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--green-700), var(--green-600));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(26, 107, 60, .2);
+        }
 
-  tbody td strong{ color: var(--ink); }
+        .card-head h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--green-900);
+            letter-spacing: -0.2px;
+            margin: 0;
+        }
 
-  /* callout box for definitions */
-  .callout{
-    background: var(--green-50);
-    border-left: 3px solid var(--green-700);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 12px 16px;
-    font-size: .88rem;
-    color: var(--ink-soft);
-    margin: 6px 0 10px;
-  }
+        .card-head .tag {
+            display: inline-block;
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--green-700);
+            background: #fff;
+            border: 1.5px solid var(--green-200);
+            padding: 2px 12px;
+            border-radius: 999px;
+            margin-top: 2px;
+            letter-spacing: .2px;
+        }
 
-  .flow{
-    display:flex;
-    flex-wrap: wrap;
-    align-items:center;
-    gap: 6px;
-    font-size: .84rem;
-    font-weight: 600;
-    color: var(--green-900);
-    margin: 8px 0;
-  }
+        .card-body {
+            padding: 24px 26px 28px;
+            flex: 1;
+        }
 
-  .flow .step{
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 6px 12px;
-    border-radius: 999px;
-  }
+        .card-body h4 {
+            font-size: .95rem;
+            font-weight: 800;
+            color: var(--green-900);
+            margin: 24px 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 2.5px solid var(--green-100);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-body h4:first-child {
+            margin-top: 0;
+        }
 
-  .flow i{ color: var(--green-600); font-size: .75rem; }
+        .card-body h4 .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(26, 107, 60, .2);
+        }
 
-  .full-width{ grid-column: 1 / -1; }
+        .card-body p {
+            font-size: .9rem;
+            color: var(--ink-soft);
+            margin-bottom: 10px;
+        }
 
-  /* ===== Footer ===== */
-  .footer{
-    margin-top: 32px;
-    text-align: center;
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    font-size: .85rem;
-    font-weight: 600;
-    color: var(--ink-soft);
-    box-shadow: var(--shadow);
-  }
+        .card-body ul,
+        .card-body ol {
+            margin: 6px 0 8px 22px;
+            font-size: .9rem;
+            color: var(--ink-soft);
+        }
 
-  .footer i{ color: var(--green-700); margin-right: 6px; }
+        .card-body li {
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+        .card-body li::marker {
+            color: var(--green-600);
+        }
 
-  /* ===== Responsive ===== */
-  @media (max-width: 900px){
-    .materi-row{ grid-template-columns: 1fr; }
-  }
+        .card-body strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
 
-  @media (max-width: 600px){
-    body{ padding: 16px 12px 40px; }
-    .topbar{ padding: 18px; border-radius: var(--radius-md); }
-    .card-head{ padding: 18px 20px; }
-    .card-body{ padding: 20px 20px 24px; }
-    .brand-text h1{ font-size: 1.1rem; }
-  }
-</style>
+        .sub-label {
+            font-size: .87rem;
+            font-weight: 700;
+            color: var(--green-800);
+            margin: 14px 0 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sub-label::before {
+            content: '▸';
+            color: var(--green-600);
+            font-weight: 900;
+        }
+
+        /* ─── CALLOUT ─── */
+        .callout {
+            background: linear-gradient(135deg, var(--green-50), #fff);
+            border-left: 4px solid var(--green-600);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 18px;
+            font-size: .9rem;
+            color: var(--ink-soft);
+            margin: 6px 0 12px;
+            box-shadow: inset 0 1px 4px rgba(26, 107, 60, .04);
+        }
+        .callout strong {
+            color: var(--green-800);
+        }
+
+        /* ─── TABLE ─── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 10px 0 14px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            box-shadow: 0 1px 4px rgba(10, 46, 26, .04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .84rem;
+            min-width: 420px;
+        }
+
+        thead th {
+            background: linear-gradient(135deg, var(--green-800), var(--green-600));
+            color: #fff;
+            font-weight: 700;
+            text-align: left;
+            padding: 12px 16px;
+            white-space: nowrap;
+            font-size: .82rem;
+            letter-spacing: .3px;
+        }
+
+        tbody td {
+            padding: 11px 16px;
+            border-top: 1px solid var(--line);
+            color: var(--ink-soft);
+            vertical-align: top;
+            font-size: .84rem;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--green-50);
+        }
+        tbody tr:hover {
+            background: var(--green-100);
+        }
+
+        tbody td strong {
+            color: var(--ink);
+        }
+
+        /* ─── FLOW / CHAIN ─── */
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 6px;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--green-900);
+            margin: 10px 0 14px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, var(--green-50), #fff);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--green-200);
+        }
+
+        .flow .step {
+            background: #fff;
+            border: 1.5px solid var(--green-200);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--green-800);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .flow .step:hover {
+            background: var(--green-600);
+            color: #fff;
+            border-color: var(--green-600);
+            transform: scale(1.04);
+        }
+
+        .flow i {
+            color: var(--green-500);
+            font-size: .75rem;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .footer:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        .footer i {
+            color: var(--green-600);
+            margin: 0 6px;
+        }
+        .footer .heart {
+            color: var(--coral-400);
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .footer .highlight {
+            color: var(--green-700);
+            font-weight: 800;
+        }
+
+        /* ─── RESPONSIVE ─── */
+
+        /* Tablet & small laptop */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 20px 16px 40px;
+            }
+            .materi-row {
+                gap: 20px;
+            }
+            .card-body {
+                padding: 20px 22px 24px;
+            }
+            .card-head {
+                padding: 18px 22px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 820px) {
+            .materi-row {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 18px 20px;
+                border-radius: var(--radius-md);
+            }
+
+            .brand {
+                justify-content: center;
+            }
+            .brand-text {
+                text-align: center;
+            }
+            .brand-text h1 {
+                font-size: 1.15rem;
+            }
+
+            .members {
+                justify-content: center;
+                gap: 6px;
+            }
+            .member-chip {
+                font-size: .72rem;
+                padding: 4px 10px 4px 4px;
+            }
+            .member-chip .avatar {
+                width: 22px;
+                height: 22px;
+                font-size: .6rem;
+            }
+
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .section-title h2 {
+                font-size: 1.2rem;
+            }
+
+            .card-head {
+                padding: 16px 18px;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .card-head .icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .card-head h3 {
+                font-size: 1rem;
+            }
+
+            .card-body {
+                padding: 16px 18px 20px;
+            }
+            .card-body h4 {
+                font-size: .88rem;
+                margin-top: 18px;
+                gap: 8px;
+            }
+            .card-body h4 .num {
+                width: 20px;
+                height: 20px;
+                font-size: .65rem;
+            }
+            .card-body p,
+            .card-body ul,
+            .card-body ol {
+                font-size: .84rem;
+            }
+            .card-body ul,
+            .card-body ol {
+                padding-left: 6px;
+                margin-left: 16px;
+            }
+
+            .table-wrap {
+                border-radius: var(--radius-sm);
+            }
+            table {
+                font-size: .78rem;
+                min-width: 320px;
+            }
+            thead th,
+            tbody td {
+                padding: 8px 12px;
+            }
+
+            .callout {
+                font-size: .84rem;
+                padding: 12px 14px;
+            }
+
+            .flow {
+                font-size: .76rem;
+                padding: 10px 12px;
+                gap: 6px;
+            }
+            .flow .step {
+                font-size: .72rem;
+                padding: 4px 10px;
+            }
+            .flow i {
+                font-size: .65rem;
+            }
+
+            .footer {
+                padding: 16px 18px;
+                font-size: .78rem;
+                border-radius: var(--radius-md);
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 420px) {
+            .container {
+                padding: 12px 10px 32px;
+            }
+
+            .topbar {
+                padding: 14px 14px;
+            }
+            .brand .mark {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                border-radius: 10px;
+            }
+            .brand-text h1 {
+                font-size: 1rem;
+            }
+            .brand-text p {
+                font-size: .7rem;
+            }
+
+            .members {
+                gap: 4px;
+            }
+            .member-chip {
+                font-size: .65rem;
+                padding: 3px 8px 3px 3px;
+                gap: 4px;
+            }
+            .member-chip .avatar {
+                width: 18px;
+                height: 18px;
+                font-size: .55rem;
+            }
+
+            .card-head {
+                padding: 12px 14px;
+                gap: 10px;
+            }
+            .card-head .icon {
+                width: 34px;
+                height: 34px;
+                font-size: .85rem;
+                border-radius: 8px;
+            }
+            .card-head h3 {
+                font-size: .9rem;
+            }
+            .card-head .tag {
+                font-size: .6rem;
+                padding: 1px 8px;
+            }
+
+            .card-body {
+                padding: 12px 14px 16px;
+            }
+            .card-body h4 {
+                font-size: .82rem;
+                margin-top: 14px;
+                padding-bottom: 5px;
+            }
+            .card-body h4 .num {
+                width: 18px;
+                height: 18px;
+                font-size: .6rem;
+                border-radius: 5px;
+            }
+            .card-body p,
+            .card-body ul,
+            .card-body ol {
+                font-size: .78rem;
+            }
+            .card-body ul,
+            .card-body ol {
+                margin-left: 12px;
+            }
+            .card-body li {
+                margin-bottom: 4px;
+            }
+
+            .sub-label {
+                font-size: .8rem;
+            }
+
+            .table-wrap {
+                border-radius: 6px;
+            }
+            table {
+                font-size: .72rem;
+                min-width: 260px;
+            }
+            thead th,
+            tbody td {
+                padding: 6px 10px;
+            }
+
+            .callout {
+                font-size: .78rem;
+                padding: 10px 12px;
+                border-left-width: 3px;
+            }
+
+            .flow {
+                font-size: .7rem;
+                padding: 8px 10px;
+                gap: 4px;
+                flex-wrap: wrap;
+            }
+            .flow .step {
+                font-size: .65rem;
+                padding: 3px 8px;
+            }
+            .flow i {
+                font-size: .55rem;
+            }
+
+            .footer {
+                padding: 14px 12px;
+                font-size: .72rem;
+                margin-top: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 1rem;
+            }
+            .section-title .badge {
+                font-size: .7rem;
+                padding: 4px 12px 4px 10px;
+            }
+        }
+
+        /* ─── UTILITY ─── */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gap-1 {
+            gap: 4px;
+        }
+        .gap-2 {
+            gap: 8px;
+        }
+        .mt-1 {
+            margin-top: 6px;
+        }
+        .mb-1 {
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ===== Header ===== -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="mark"><i class="fas fa-leaf"></i></div>
-      <div class="brand-text">
-        <h1>Kelompok 5</h1>
-        <p>Rangkuman Materi Biologi · Kelas X</p>
-      </div>
-    </div>
-    <div class="members">
-      <span class="member-chip"><span class="avatar">A</span>Azka</span>
-      <span class="member-chip"><span class="avatar">A</span>Amirah</span>
-      <span class="member-chip"><span class="avatar">D</span>Dinilah</span>
-      <span class="member-chip"><span class="avatar">D</span>Dutha</span>
-      <span class="member-chip"><span class="avatar">F</span>Fikri</span>
-    </div>
-  </header>
+    <div class="container">
 
-  <!-- ===== Materi ===== -->
-  <div class="materi">
+        <!-- ═══ HEADER ═══ -->
+        <header class="topbar">
+            <div class="brand">
+                <div class="mark"><i class="fas fa-leaf"></i></div>
+                <div class="brand-text">
+                    <h1>Kelompok 5</h1>
+                    <p>Rangkuman Biologi · Kelas X</p>
+                </div>
+            </div>
+            <div class="members">
+                <span class="member-chip"><span class="avatar">A</span>Azka</span>
+                <span class="member-chip"><span class="avatar">A</span>Amirah</span>
+                <span class="member-chip"><span class="avatar">D</span>Dinilah</span>
+                <span class="member-chip"><span class="avatar">D</span>Dutha</span>
+                <span class="member-chip"><span class="avatar">F</span>Fikri</span>
+            </div>
+        </header>
 
-    <!-- 1. BIOTEKNOLOGI -->
-    <div class="materi-row">
-      <div class="card full-width">
-        <div class="card-head">
-          <div class="icon"><i class="fas fa-flask"></i></div>
-          <div>
-            <h3>Bioteknologi</h3>
-            <span class="tag">X · 3</span>
-          </div>
-        </div>
-        <div class="card-body">
+        <!-- ═══ MATERI ═══ -->
+        <div class="materi">
 
-          <h4><span class="num">1</span> Pengertian Bioteknologi</h4>
-          <div class="callout">Bioteknologi adalah pemanfaatan makhluk hidup atau bagian-bagiannya, maupun proses biologis, untuk menghasilkan barang dan jasa yang bermanfaat bagi kehidupan manusia.</div>
+            <!-- ─── 1. BIOTEKNOLOGI ─── -->
+            <div class="materi-row">
+                <div class="card card-accent-green full-width">
+                    <div class="card-head">
+                        <div class="icon"><i class="fas fa-flask"></i></div>
+                        <div>
+                            <h3>Bioteknologi</h3>
+                            <span class="tag">X · 3</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
 
-          <h4><span class="num">2</span> Tujuan Bioteknologi</h4>
-          <ul>
-            <li>Memenuhi kebutuhan manusia akan pangan, sandang, papan, kesehatan, dan energi.</li>
-            <li>Meningkatkan kualitas dan kuantitas produk.</li>
-            <li>Menghasilkan produk baru yang lebih bermanfaat.</li>
-            <li>Memperbaiki sifat makhluk hidup agar lebih unggul.</li>
-            <li>Mengatasi masalah lingkungan.</li>
-          </ul>
+                        <h4><span class="num">1</span> Pengertian Bioteknologi</h4>
+                        <div class="callout"><strong>Bioteknologi</strong> adalah pemanfaatan makhluk hidup atau bagian-bagiannya, maupun proses biologis, untuk menghasilkan barang dan jasa yang bermanfaat bagi kehidupan manusia.</div>
 
-          <h4><span class="num">3</span> Prinsip Bioteknologi</h4>
-          <ul>
-            <li>Memanfaatkan proses biologis.</li>
-            <li>Menggunakan mikroorganisme, sel, atau bagian organisme.</li>
-            <li>Dilakukan secara terkontrol dan terarah.</li>
-          </ul>
+                        <h4><span class="num">2</span> Tujuan Bioteknologi</h4>
+                        <ul>
+                            <li>Memenuhi kebutuhan manusia akan pangan, sandang, papan, kesehatan, dan energi.</li>
+                            <li>Meningkatkan kualitas dan kuantitas produk.</li>
+                            <li>Menghasilkan produk baru yang lebih bermanfaat.</li>
+                            <li>Memperbaiki sifat makhluk hidup agar lebih unggul.</li>
+                            <li>Mengatasi masalah lingkungan.</li>
+                        </ul>
 
-          <h4><span class="num">4</span> Jenis Bioteknologi</h4>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>Konvensional (Tradisional)</th><th>Modern</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Menggunakan cara alami tanpa rekayasa genetika, memanfaatkan mikroorganisme secara langsung.<br><strong>Contoh:</strong> tempe, tape, yoghurt, kecap, cuka</td>
-                  <td>Menggunakan teknologi canggih dan rekayasa genetika.<br><strong>Contoh:</strong> insulin rekombinan, tanaman transgenik (jagung Bt, padi emas), kloning hewan, kultur jaringan</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                        <h4><span class="num">3</span> Prinsip Bioteknologi</h4>
+                        <ul>
+                            <li>Memanfaatkan proses biologis.</li>
+                            <li>Menggunakan mikroorganisme, sel, atau bagian organisme.</li>
+                            <li>Dilakukan secara terkontrol dan terarah.</li>
+                        </ul>
 
-          <h4><span class="num">5</span> Aplikasi Bioteknologi</h4>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Bidang</th><th>Contoh</th><th>Manfaat</th></tr></thead>
-              <tbody>
-                <tr><td>Pangan</td><td>Tempe, yoghurt, keju, roti, tape</td><td>Makanan bergizi, tahan lama, enak</td></tr>
-                <tr><td>Kesehatan</td><td>Antibiotik (penisilin), vaksin, insulin</td><td>Mengobati &amp; mencegah penyakit</td></tr>
-                <tr><td>Pertanian</td><td>Kultur jaringan, tanaman transgenik (Bt)</td><td>Tanaman unggul, tahan hama, hasil meningkat</td></tr>
-                <tr><td>Peternakan</td><td>Inseminasi buatan, kloning hewan</td><td>Meningkatkan kualitas ternak</td></tr>
-                <tr><td>Lingkungan</td><td>Pengolahan limbah oleh bakteri</td><td>Mengurangi pencemaran</td></tr>
-              </tbody>
-            </table>
-          </div>
+                        <h4><span class="num">4</span> Jenis Bioteknologi</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Konvensional (Tradisional)</th><th>Modern</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Menggunakan cara alami tanpa rekayasa genetika, memanfaatkan mikroorganisme secara langsung.<br><strong>Contoh:</strong> tempe, tape, yoghurt, kecap, cuka</td>
+                                        <td>Menggunakan teknologi canggih dan rekayasa genetika.<br><strong>Contoh:</strong> insulin rekombinan, tanaman transgenik (jagung Bt, padi emas), kloning hewan, kultur jaringan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-          <h4><span class="num">6</span> Proses Bioteknologi (Secara Umum)</h4>
-          <div class="flow">
-            <span class="step">Pemilihan mikroorganisme</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Persiapan &amp; inokulasi</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Fermentasi / rekayasa genetika</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Pemanenan &amp; pemurnian</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Pengemasan &amp; distribusi</span>
-          </div>
+                        <h4><span class="num">5</span> Aplikasi Bioteknologi</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Bidang</th><th>Contoh</th><th>Manfaat</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Pangan</td><td>Tempe, yoghurt, keju, roti, tape</td><td>Makanan bergizi, tahan lama, enak</td></tr>
+                                    <tr><td>Kesehatan</td><td>Antibiotik (penisilin), vaksin, insulin</td><td>Mengobati &amp; mencegah penyakit</td></tr>
+                                    <tr><td>Pertanian</td><td>Kultur jaringan, tanaman transgenik (Bt)</td><td>Tanaman unggul, tahan hama, hasil meningkat</td></tr>
+                                    <tr><td>Peternakan</td><td>Inseminasi buatan, kloning hewan</td><td>Meningkatkan kualitas ternak</td></tr>
+                                    <tr><td>Lingkungan</td><td>Pengolahan limbah oleh bakteri</td><td>Mengurangi pencemaran</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-          <h4><span class="num">7</span> Kelebihan Bioteknologi</h4>
-          <ul>
-            <li>Menghasilkan produk dalam jumlah besar dan berkualitas.</li>
-            <li>Produk lebih tahan lama dan bernilai gizi tinggi.</li>
-            <li>Membantu mengatasi kelangkaan pangan.</li>
-            <li>Menghasilkan obat dan vaksin untuk kesehatan.</li>
-            <li>Membantu mengatasi pencemaran lingkungan.</li>
-          </ul>
+                        <h4><span class="num">6</span> Proses Bioteknologi (Secara Umum)</h4>
+                        <div class="flow">
+                            <span class="step">Pemilihan mikroorganisme</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Persiapan &amp; inokulasi</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Fermentasi / rekayasa genetika</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Pemanenan &amp; pemurnian</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Pengemasan &amp; distribusi</span>
+                        </div>
 
-          <h4><span class="num">8</span> Kekurangan Bioteknologi</h4>
-          <ul>
-            <li>Biaya penelitian dan peralatan mahal.</li>
-            <li>Dapat menimbulkan dampak negatif jika tidak terkontrol.</li>
-            <li>Produk hasil rekayasa dapat menimbulkan alergi.</li>
-            <li>Dapat mengurangi keanekaragaman hayati.</li>
-          </ul>
+                        <h4><span class="num">7</span> Kelebihan Bioteknologi</h4>
+                        <ul>
+                            <li>Menghasilkan produk dalam jumlah besar dan berkualitas.</li>
+                            <li>Produk lebih tahan lama dan bernilai gizi tinggi.</li>
+                            <li>Membantu mengatasi kelangkaan pangan.</li>
+                            <li>Menghasilkan obat dan vaksin untuk kesehatan.</li>
+                            <li>Membantu mengatasi pencemaran lingkungan.</li>
+                        </ul>
 
-          <h4><span class="num">9</span> Contoh Produk Bioteknologi</h4>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Produk</th><th>Jenis</th><th>Mikroorganisme / Organisme</th></tr></thead>
-              <tbody>
-                <tr><td>Tempe</td><td>Konvensional</td><td>Jamur <em>Rhizopus oligosporus</em></td></tr>
-                <tr><td>Yoghurt</td><td>Konvensional</td><td>Bakteri <em>Lactobacillus bulgaricus</em> &amp; <em>Streptococcus thermophilus</em></td></tr>
-                <tr><td>Roti</td><td>Konvensional</td><td>Ragi <em>Saccharomyces cerevisiae</em></td></tr>
-                <tr><td>Antibiotik (penisilin)</td><td>Modern</td><td>Jamur <em>Penicillium</em></td></tr>
-                <tr><td>Insulin</td><td>Modern</td><td>Bakteri <em>Escherichia coli</em> rekombinan</td></tr>
-                <tr><td>Tanaman transgenik (jagung Bt)</td><td>Modern</td><td>Gen Bt dari bakteri <em>Bacillus thuringiensis</em></td></tr>
-              </tbody>
-            </table>
-          </div>
+                        <h4><span class="num">8</span> Kekurangan Bioteknologi</h4>
+                        <ul>
+                            <li>Biaya penelitian dan peralatan mahal.</li>
+                            <li>Dapat menimbulkan dampak negatif jika tidak terkontrol.</li>
+                            <li>Produk hasil rekayasa dapat menimbulkan alergi.</li>
+                            <li>Dapat mengurangi keanekaragaman hayati.</li>
+                        </ul>
 
-          <h4><span class="num">10</span> Peran Bioteknologi dalam Kehidupan</h4>
-          <ul>
-            <li><strong>Pangan:</strong> Menyediakan makanan bergizi dan tahan lama.</li>
-            <li><strong>Kesehatan:</strong> Menghasilkan obat, vaksin, dan diagnosis penyakit.</li>
-            <li><strong>Pertanian:</strong> Meningkatkan produktivitas dan ketahanan tanaman.</li>
-            <li><strong>Peternakan:</strong> Meningkatkan kualitas dan kuantitas hasil ternak.</li>
-            <li><strong>Lingkungan:</strong> Mengolah limbah dan menjaga kelestarian lingkungan.</li>
-          </ul>
+                        <h4><span class="num">9</span> Contoh Produk Bioteknologi</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Produk</th><th>Jenis</th><th>Mikroorganisme / Organisme</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tempe</td><td>Konvensional</td><td>Jamur <em>Rhizopus oligosporus</em></td></tr>
+                                    <tr><td>Yoghurt</td><td>Konvensional</td><td>Bakteri <em>Lactobacillus bulgaricus</em> &amp; <em>Streptococcus thermophilus</em></td></tr>
+                                    <tr><td>Roti</td><td>Konvensional</td><td>Ragi <em>Saccharomyces cerevisiae</em></td></tr>
+                                    <tr><td>Antibiotik (penisilin)</td><td>Modern</td><td>Jamur <em>Penicillium</em></td></tr>
+                                    <tr><td>Insulin</td><td>Modern</td><td>Bakteri <em>Escherichia coli</em> rekombinan</td></tr>
+                                    <tr><td>Tanaman transgenik (jagung Bt)</td><td>Modern</td><td>Gen Bt dari bakteri <em>Bacillus thuringiensis</em></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-        </div>
-      </div>
-    </div>
+                        <h4><span class="num">10</span> Peran Bioteknologi dalam Kehidupan</h4>
+                        <ul>
+                            <li><strong>Pangan:</strong> Menyediakan makanan bergizi dan tahan lama.</li>
+                            <li><strong>Kesehatan:</strong> Menghasilkan obat, vaksin, dan diagnosis penyakit.</li>
+                            <li><strong>Pertanian:</strong> Meningkatkan produktivitas dan ketahanan tanaman.</li>
+                            <li><strong>Peternakan:</strong> Meningkatkan kualitas dan kuantitas hasil ternak.</li>
+                            <li><strong>Lingkungan:</strong> Mengolah limbah dan menjaga kelestarian lingkungan.</li>
+                        </ul>
 
-    <!-- 2. EKOSISTEM -->
-    <div class="materi-row">
-      <div class="card full-width">
-        <div class="card-head">
-          <div class="icon"><i class="fas fa-earth-asia"></i></div>
-          <div>
-            <h3>Ekosistem dan Interaksinya</h3>
-            <span class="tag">X · 3</span>
-          </div>
-        </div>
-        <div class="card-body">
+                    </div>
+                </div>
+            </div>
 
-          <h4><span class="num">1</span> Pengertian Ekosistem</h4>
-          <div class="callout">Ekosistem adalah kesatuan antara makhluk hidup (biotik) dengan lingkungan abiotik di suatu tempat yang saling berinteraksi membentuk suatu sistem yang seimbang.</div>
+            <!-- ─── 2. EKOSISTEM ─── -->
+            <div class="materi-row">
+                <div class="card card-accent-amber full-width">
+                    <div class="card-head">
+                        <div class="icon"><i class="fas fa-earth-asia"></i></div>
+                        <div>
+                            <h3>Ekosistem dan Interaksinya</h3>
+                            <span class="tag">X · 3</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
 
-          <h4><span class="num">2</span> Komponen Ekosistem</h4>
-          <p class="sub-label">a. Komponen Biotik (makhluk hidup)</p>
-          <ul>
-            <li><strong>Produsen</strong> — makhluk hidup yang dapat membuat makanan sendiri (contoh: tumbuhan hijau).</li>
-            <li><strong>Konsumen</strong> — makhluk hidup yang memperoleh energi dengan memakan makhluk hidup lain.</li>
-            <li><strong>Pengurai (dekomposer)</strong> — menguraikan sisa-sisa makhluk hidup menjadi zat sederhana (contoh: bakteri, jamur).</li>
-          </ul>
-          <p class="sub-label">b. Komponen Abiotik (tak hidup)</p>
-          <p>Faktor fisik dan kimia: cahaya matahari, air, udara, tanah, suhu, mineral, kelembapan, pH, dan lainnya.</p>
+                        <h4><span class="num">1</span> Pengertian Ekosistem</h4>
+                        <div class="callout"><strong>Ekosistem</strong> adalah kesatuan antara makhluk hidup (biotik) dengan lingkungan abiotik di suatu tempat yang saling berinteraksi membentuk suatu sistem yang seimbang.</div>
 
-          <h4><span class="num">3</span> Jenis-Jenis Ekosistem</h4>
-          <p class="sub-label">a. Berdasarkan Asalnya</p>
-          <ul>
-            <li><strong>Ekosistem alami</strong> — terbentuk secara alami (hutan, laut, sungai, danau).</li>
-            <li><strong>Ekosistem buatan</strong> — hasil campur tangan manusia (sawah, waduk, kebun, akuarium).</li>
-          </ul>
-          <p class="sub-label">b. Berdasarkan Lingkungannya</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Jenis Ekosistem</th><th>Keterangan</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Ekosistem Darat</strong></td><td>Hutan, padang rumput, gurun, pegunungan, kebun</td></tr>
-                <tr><td><strong>Ekosistem Perairan</strong></td><td>Laut, sungai, danau, rawa, terumbu karang</td></tr>
-              </tbody>
-            </table>
-          </div>
+                        <h4><span class="num">2</span> Komponen Ekosistem</h4>
+                        <p class="sub-label">a. Komponen Biotik (makhluk hidup)</p>
+                        <ul>
+                            <li><strong>Produsen</strong> — makhluk hidup yang dapat membuat makanan sendiri (contoh: tumbuhan hijau).</li>
+                            <li><strong>Konsumen</strong> — makhluk hidup yang memperoleh energi dengan memakan makhluk hidup lain.</li>
+                            <li><strong>Pengurai (dekomposer)</strong> — menguraikan sisa-sisa makhluk hidup menjadi zat sederhana (contoh: bakteri, jamur).</li>
+                        </ul>
+                        <p class="sub-label">b. Komponen Abiotik (tak hidup)</p>
+                        <p>Faktor fisik dan kimia: cahaya matahari, air, udara, tanah, suhu, mineral, kelembapan, pH, dan lainnya.</p>
 
-          <h4><span class="num">4</span> Aliran Energi dalam Ekosistem</h4>
-          <div class="flow">
-            <span class="step">Matahari</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Tumbuhan (Produsen)</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Belalang (Konsumen I)</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Katak (Konsumen II)</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Ular (Konsumen III)</span><i class="fas fa-arrow-right"></i>
-            <span class="step">Pengurai</span>
-          </div>
-          <p><em>Energi berkurang di setiap tingkat trofik.</em></p>
+                        <h4><span class="num">3</span> Jenis-Jenis Ekosistem</h4>
+                        <p class="sub-label">a. Berdasarkan Asalnya</p>
+                        <ul>
+                            <li><strong>Ekosistem alami</strong> — terbentuk secara alami (hutan, laut, sungai, danau).</li>
+                            <li><strong>Ekosistem buatan</strong> — hasil campur tangan manusia (sawah, waduk, kebun, akuarium).</li>
+                        </ul>
+                        <p class="sub-label">b. Berdasarkan Lingkungannya</p>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Jenis Ekosistem</th><th>Keterangan</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Ekosistem Darat</strong></td><td>Hutan, padang rumput, gurun, pegunungan, kebun</td></tr>
+                                    <tr><td><strong>Ekosistem Perairan</strong></td><td>Laut, sungai, danau, rawa, terumbu karang</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-          <h4><span class="num">5</span> Interaksi Antar Komponen Ekosistem</h4>
-          <p class="sub-label">a. Interaksi Antar Komponen Biotik</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Jenis Interaksi</th><th>Pengertian</th><th>Contoh</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Mutualisme</strong></td><td>Kedua makhluk hidup saling diuntungkan.</td><td>Lebah &amp; bunga, burung jalak &amp; kerbau</td></tr>
-                <tr><td><strong>Komensalisme</strong></td><td>Satu diuntungkan, yang lain tidak dirugikan.</td><td>Anggrek dengan pohon, ikan remora dengan hiu</td></tr>
-                <tr><td><strong>Parasitisme</strong></td><td>Satu diuntungkan, yang lain dirugikan.</td><td>Cacing pita pada usus manusia, benalu pada pohon mangga</td></tr>
-                <tr><td><strong>Predasi</strong></td><td>Pemangsa menangkap dan memakan mangsa.</td><td>Singa memangsa zebra, elang memangsa tikus</td></tr>
-                <tr><td><strong>Kompetisi</strong></td><td>Persaingan mendapatkan sumber daya yang sama.</td><td>Persaingan antar tumbuhan untuk cahaya matahari</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="sub-label">b. Interaksi Antara Komponen Biotik dan Abiotik</p>
-          <ul>
-            <li>Tumbuhan memerlukan cahaya matahari, air, dan mineral untuk fotosintesis.</li>
-            <li>Ikan memerlukan oksigen terlarut dalam air untuk bernapas.</li>
-            <li>Suhu memengaruhi pertumbuhan dan penyebaran makhluk hidup.</li>
-          </ul>
+                        <h4><span class="num">4</span> Aliran Energi dalam Ekosistem</h4>
+                        <div class="flow">
+                            <span class="step">Matahari</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Tumbuhan (Produsen)</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Belalang (Konsumen I)</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Katak (Konsumen II)</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Ular (Konsumen III)</span><i class="fas fa-arrow-right"></i>
+                            <span class="step">Pengurai</span>
+                        </div>
+                        <p><em>Energi berkurang di setiap tingkat trofik.</em></p>
 
-          <h4><span class="num">6</span> Keseimbangan Ekosistem</h4>
-          <p>Keseimbangan ekosistem terjadi apabila semua komponen berinteraksi secara seimbang dan tidak ada yang mendominasi. Jika salah satu komponen terganggu, keseimbangan dapat berubah dan menyebabkan kerusakan lingkungan.</p>
+                        <h4><span class="num">5</span> Interaksi Antar Komponen Ekosistem</h4>
+                        <p class="sub-label">a. Interaksi Antar Komponen Biotik</p>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Jenis Interaksi</th><th>Pengertian</th><th>Contoh</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Mutualisme</strong></td><td>Kedua makhluk hidup saling diuntungkan.</td><td>Lebah &amp; bunga, burung jalak &amp; kerbau</td></tr>
+                                    <tr><td><strong>Komensalisme</strong></td><td>Satu diuntungkan, yang lain tidak dirugikan.</td><td>Anggrek dengan pohon, ikan remora dengan hiu</td></tr>
+                                    <tr><td><strong>Parasitisme</strong></td><td>Satu diuntungkan, yang lain dirugikan.</td><td>Cacing pita pada usus manusia, benalu pada pohon mangga</td></tr>
+                                    <tr><td><strong>Predasi</strong></td><td>Pemangsa menangkap dan memakan mangsa.</td><td>Singa memangsa zebra, elang memangsa tikus</td></tr>
+                                    <tr><td><strong>Kompetisi</strong></td><td>Persaingan mendapatkan sumber daya yang sama.</td><td>Persaingan antar tumbuhan untuk cahaya matahari</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub-label">b. Interaksi Antara Komponen Biotik dan Abiotik</p>
+                        <ul>
+                            <li>Tumbuhan memerlukan cahaya matahari, air, dan mineral untuk fotosintesis.</li>
+                            <li>Ikan memerlukan oksigen terlarut dalam air untuk bernapas.</li>
+                            <li>Suhu memengaruhi pertumbuhan dan penyebaran makhluk hidup.</li>
+                        </ul>
 
-          <h4><span class="num">7</span> Manfaat Ekosistem</h4>
-          <ul>
-            <li>Menyediakan kebutuhan hidup manusia (pangan, sandang, papan).</li>
-            <li>Menjaga keseimbangan lingkungan.</li>
-            <li>Menyediakan oksigen dan menyerap karbon dioksida.</li>
-            <li>Mendukung siklus air dan kesuburan tanah.</li>
-            <li>Menjadi tempat hidup berbagai makhluk hidup.</li>
-          </ul>
+                        <h4><span class="num">6</span> Keseimbangan Ekosistem</h4>
+                        <p>Keseimbangan ekosistem terjadi apabila semua komponen berinteraksi secara seimbang dan tidak ada yang mendominasi. Jika salah satu komponen terganggu, keseimbangan dapat berubah dan menyebabkan kerusakan lingkungan.</p>
 
-        </div>
-      </div>
-    </div>
+                        <h4><span class="num">7</span> Manfaat Ekosistem</h4>
+                        <ul>
+                            <li>Menyediakan kebutuhan hidup manusia (pangan, sandang, papan).</li>
+                            <li>Menjaga keseimbangan lingkungan.</li>
+                            <li>Menyediakan oksigen dan menyerap karbon dioksida.</li>
+                            <li>Mendukung siklus air dan kesuburan tanah.</li>
+                            <li>Menjadi tempat hidup berbagai makhluk hidup.</li>
+                        </ul>
 
-    <!-- 3 & 4 -->
-    <div class="materi-row">
+                    </div>
+                </div>
+            </div>
 
-      <!-- 3. BAKTERI -->
-      <div class="card">
-        <div class="card-head">
-          <div class="icon"><i class="fas fa-bacterium"></i></div>
-          <div>
-            <h3>Bakteri</h3>
-            <span class="tag">X · 3</span>
-          </div>
-        </div>
-        <div class="card-body">
+            <!-- ─── 3 & 4: BAKTERI (split into two cards) ─── -->
+            <div class="materi-row">
 
-          <h4><span class="num">1</span> Pengertian</h4>
-          <div class="callout">Bakteri adalah mikroorganisme bersel satu prokariotik, tidak memiliki inti sel sejati dan organela bermembran. Hidup di hampir semua tempat.</div>
+                <!-- 3. BAKTERI (bagian 1) -->
+                <div class="card card-accent-blue">
+                    <div class="card-head">
+                        <div class="icon"><i class="fas fa-bacterium"></i></div>
+                        <div>
+                            <h3>Bakteri</h3>
+                            <span class="tag">X · 3</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
 
-          <h4><span class="num">2</span> C
+                        <h4><span class="num">1</span> Pengertian</h4>
+                        <div class="callout"><strong>Bakteri</strong> adalah mikroorganisme bersel satu prokariotik, tidak memiliki inti sel sejati dan organela bermembran. Hidup di hampir semua tempat.</div>
+
+                        <h4><span class="num">2</span> Ciri-Ciri Bakteri</h4>
+                        <ul>
+                            <li>Organisme prokariotik (tidak memiliki membran inti).</li>
+                            <li>Bersel tunggal (uniseluler).</li>
+                            <li>Memiliki dinding sel (kecuali beberapa jenis).</li>
+                            <li>Ukuran sangat kecil (mikroskopis).</li>
+                            <li>Berkembang biak dengan pembelahan biner.</li>
+                            <li>Dapat hidup di berbagai lingkungan, termasuk ekstrem.</li>
+                        </ul>
+
+                        <h4><span class="num">3</span> Struktur Bakteri</h4>
+                        <ul>
+                            <li><strong>Kapsul:</strong> lapisan lendir di luar dinding sel, berfungsi sebagai perlindungan.</li>
+                            <li><strong>Dinding sel:</strong> memberi bentuk dan perlindungan, tersusun dari peptidoglikan.</li>
+                            <li><strong>Membran plasma:</strong> mengatur keluar masuk zat.</li>
+                            <li><strong>Sitoplasma:</strong> tempat berlangsungnya reaksi metabolisme.</li>
+                            <li><strong>Ribosom:</strong> tempat sintesis protein.</li>
+                            <li><strong>DNA (nukleoid):</strong> materi genetik tanpa membran inti.</li>
+                            <li><strong>Flagela:</strong> alat gerak (pada beberapa bakteri).</li>
+                            <li><strong>Pili (fimbria):</strong> alat untuk menempel pada permukaan atau inang.</li>
+                        </ul>
+
+                        <h4><span class="num">4</span> Klasifikasi Bakteri</h4>
+                        <p class="sub-label">a. Berdasarkan Bentuk</p>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Bentuk</th><th>Contoh Bakteri</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Kokus (bulat)</td><td><em>Staphylococcus</em>, <em>Streptococcus</em></td></tr>
+                                    <tr><td>Bacillus (batang)</td><td><em>Escherichia coli</em>, <em>Bacillus anthracis</em></td></tr>
+                                    <tr><td>Spiral (melengkung)</td><td><em>Vibrio cholerae</em>, <em>Treponema pallidum</em></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="sub-label">b. Berdasarkan Cara Memperoleh Makanan</p>
+                        <ul>
+                            <li><strong>Autotrof:</strong> dapat membuat makanan sendiri (fotosintesis atau kemosintesis).</li>
+                            <li><strong>Heterotrof:</strong> memperoleh makanan dari organisme lain (saprofit atau parasit).</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!-- 4. BAKTERI (bagian 2) -->
+                <div class="card card-accent-purple">
+                    <div class="card-head">
+                        <div class="icon"><i class="fas fa-dna"></i></div>
+                        <div>
+                            <h3>Bakteri · Lanjutan</h3>
+                            <span class="tag">X · 3</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <h4><span class="num">4</span> Klasifikasi (Lanjutan)</h4>
+                        <p class="sub-label">c. Berdasarkan Kebutuhan Oksigen</p>
+                        <ul>
+                            <li><strong>Aerob:</strong> membutuhkan oksigen untuk respirasi.</li>
+                            <li><strong>Anaerob obligat:</strong> tidak dapat hidup dengan oksigen.</li>
+                            <li><strong>Anaerob fakultatif:</strong> dapat hidup dengan atau tanpa oksigen.</li>
+                        </ul>
+
+                        <p class="sub-label">d. Berdasarkan Pewarnaan Gram</p>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Gram Positif</th><th>Gram Negatif</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Dinding sel tebal, menyerap warna ungu</td><td>Dinding sel tipis, menyerap warna merah</td></tr>
+                                    <tr><td>Contoh: <em>Staphylococcus</em>, <em>Bacillus</em></td><td>Contoh: <em>E. coli</em>, <em>Salmonella</em></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4><span class="num">5</span> Reproduksi Bakteri</h4>
+                        <ul>
+                            <li><strong>Aseksual:</strong> pembelahan biner (membelah menjadi dua sel anak yang identik).</li>
+                            <li><strong>Seksual (paraseksual):</strong> melalui konjugasi (pertukaran DNA), transformasi (pengambilan DNA dari lingkungan), dan transduksi (melalui virus).</li>
+                        </ul>
+
+                        <h4><span class="num">6</span> Peran Bakteri bagi Kehidupan</h4>
+                        <p class="sub-label">a. Menguntungkan</p>
+                        <ul>
+                            <li>Pembuatan makanan (yoghurt, keju, acar, kecap).</li>
+                            <li>Pengurai (dekomposer) dalam ekosistem.</li>
+                            <li>Fiksasi nitrogen (bakteri <em>Rhizobium</em> pada akar kacang-kacangan).</li>
+                            <li>Produksi antibiotik (misal, <em>Streptomyces</em>).</li>
+                            <li>Bioteknologi (insulin, enzim, pupuk hayati).</li>
+                        </ul>
+                        <p class="sub-label">b. Merugikan</p>
+                        <ul>
+                            <li>Menyebabkan penyakit (tifus, kolera, TBC, sifilis, tetanus, dll).</li>
+                            <li>Membusukkan makanan.</li>
+                            <li>Mencemari lingkungan (misal, bakteri patogen).</li>
+                        </ul>
+
+                        <h4><span class="num">7</span> Contoh Bakteri Patogen dan Penyakitnya</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Bakteri</th><th>Penyakit</th></tr></thead>
+                                <tbody>
+                                    <tr><td><em>Salmonella typhi</em></td><td>Demam tifoid</td></tr>
+                                    <tr><td><em>Vibrio cholerae</em></td><td>Kolera</td></tr>
+                                    <tr><td><em>Mycobacterium tuberculosis</em></td><td>TBC (tuberkulosis)</td></tr>
+                                    <tr><td><em>Treponema pallidum</em></td><td>Sifilis</td></tr>
+                                    <tr><td><em>Clostridium tetani</em></td><td>Tetanus</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /materi-row -->
+
+        </div><!-- /materi -->
+
+        <!-- ═══ FOOTER ═══ -->
+        <footer class="footer">
+            <i class="fas fa-leaf"></i>
+            Rangkuman Biologi Kelas X
+            <i class="fas fa-circle" style="font-size: .3rem; vertical-align: middle; margin: 0 8px;"></i>
+            Kelompok 5
+            <i class="fas fa-circle" style="font-size: .3rem; vertical-align: middle; margin: 0 8px;"></i>
+            Dibuat dengan <span class="heart"><i class="fas fa-heart"></i></span> untuk belajar
+            <br style="display: none;" />
+            <span style="display: inline-block; margin-top: 4px; font-weight: 500; color: var(--ink-light); font-size: .78rem;">
+                <i class="fas fa-dna" style="margin-right: 4px;"></i>
+                SMANELL · Semester 1
+            </span>
+        </footer>
+
+    </div><!-- /container -->
+
+</body>
+</html>
